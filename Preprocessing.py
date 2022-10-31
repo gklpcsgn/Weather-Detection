@@ -40,4 +40,9 @@ def preprocess(df):
     X_test = scaler.transform(X_test)
     X_val = scaler.transform(X_val)
 
+    X_train = pd.DataFrame(X_train, columns=df.columns.drop(["Rain","Fog","Thunderstorm"]))
+    X_val = pd.DataFrame(X_val, columns=df.columns.drop(["Rain","Fog","Thunderstorm"]))
+    y_train = pd.DataFrame(y_train, columns=["Rain","Fog","Thunderstorm"])
+    y_val = pd.DataFrame(y_val, columns=["Rain","Fog","Thunderstorm"])
+
     return  X_train, X_test, y_train, y_test, X_val, y_val
