@@ -11,6 +11,8 @@ class EnsembleModel:
         #take the first column of X
         
         predictions = np.column_stack([
-            self.model_rain.predict(X.iloc[:,0]), self.model_fog.predict(X.iloc[:,1]), self.model_thunderstorm.predict(X.iloc[:,2])
+            self.model_rain.predict(X),
+            self.model_fog.predict(X),
+            self.model_thunderstorm.predict(X)
         ])
         return predictions
